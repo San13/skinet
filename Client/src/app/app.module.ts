@@ -13,6 +13,7 @@ import { HomeModule } from './home/home.module';
 
 import { ErrorInterceptor } from './core/intercepters/error.interceptor';
 import { LoadingInterceptor } from './core/intercepters/loading.interceptor';
+import { JwtInterceptor } from './core/intercepters/jwt.interceptor';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { LoadingInterceptor } from './core/intercepters/loading.interceptor';
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })

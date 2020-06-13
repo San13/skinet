@@ -25,6 +25,7 @@ namespace API.Controllers
             _orderService = orderService;
         }
 
+        [HttpPost]
         public async Task<ActionResult<OrderDto>> CreateOrder(OrderDto orderDto)
         {
             var email = HttpContext.User.RetrieveEmailFromPrinciple();
