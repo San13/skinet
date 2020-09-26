@@ -1,14 +1,19 @@
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using Core.Entities;
 
 namespace API.Dtos
 {
     public class CustomerBasketDto
     {
-       [Required]
        public string Id { get; set; }
         
-        [Required]
-        public List<BasketItemDto> Items { get; set; } = new List<BasketItemDto>();
+        public List<BasketItem> Items { get; set; } = new List<BasketItem>();
+
+        public int? DeliveryMethodId { get; set; }
+
+        public string ClientSecret { get; set; }
+
+        public string PaymentIntentId { get; set; }
+        public decimal ShippingPrice { get; set; }
     }
 }
